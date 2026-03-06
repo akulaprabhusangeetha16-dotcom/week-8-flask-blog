@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4 text-center">Latest Blog Posts</h2>
+
+{% if posts %}
+
+{% for post in posts %}
+
+<div class="card shadow-sm mb-4">
+
+<div class="card-body">
+
+<h4 class="card-title">{{ post.title }}</h4>
+
+<p class="card-text">{{ post.content }}</p>
+
+<hr>
+
+<a href="/edit/{{ post.id }}" class="btn btn-warning btn-sm">Edit</a>
+
+<a href="/delete/{{ post.id }}" class="btn btn-danger btn-sm">Delete</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="alert alert-info text-center">
+
+No posts yet. Click **Create Post** to write your first blog!
+
+</div>
+
+{% endif %}
+
+{% endblock %}
